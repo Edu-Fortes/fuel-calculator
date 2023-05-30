@@ -40,6 +40,7 @@ function sumBeforeFueling() {
     Number(beforeLhInput.value) +
     Number(beforeCtrInput.value) +
     Number(beforeRhInput.value);
+
   return beforeResult;
 }
 
@@ -86,11 +87,11 @@ function submitForm(event) {
   sumTrucks();
   totalPoundsAdded();
   openModal();
-  console.log(beforeResult);
+  console.log(`${beforeResult} before result`);
   console.log(afterResult);
   console.log(event.target);
   console.log(trucksResult);
-  console.log(poundsAdded);
+  console.log(`${poundsAdded} pounds added`);
 }
 
 function openModal() {
@@ -105,17 +106,19 @@ function openModal() {
   resultAfterRh.textContent = afterCtrInput.value;
   totalAfter.textContent = afterResult;
   //fill total metered field
-  sumMeteredFuel.textContent = `${trucksResult} Gallons`;
+  sumMeteredFuel.textContent = `${trucksResult.toLocaleString()} Gallons`;
   //fill fuel desnity field
   densityResult.textContent = fuelDensity.value;
   //fill total pounds added
-  poundAdded.textContent = poundsAdded;
+  poundAdded.textContent = Math.trunc(poundsAdded).toLocaleString();
   //fill total computed fuel
-  totalComputedFuel.textContent = Number(beforeResult) + Number(poundsAdded);
+  totalComputedFuel.textContent = Math.trunc(
+    Number(beforeResult * 1000) + Number(poundsAdded)
+  ).toLocaleString();
   //fill remarks with sum of trucks in liters
-  remarks.textContent = `${
+  remarks.textContent = `${(
     Number(fuelTruckOne.value) + Number(fuelTruckTwo.value)
-  } Liters`;
+  ).toLocaleString()} Liters`;
   //add class to show modal
   resultModal.classList.add("modal_opened");
 }
