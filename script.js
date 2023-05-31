@@ -98,12 +98,12 @@ function openModal() {
   //fill before fueling column
   resultBeforeLh.textContent = beforeLhInput.value;
   resultBeforeCtr.textContent = beforeCtrInput.value;
-  resultBeforeRh.textContent = beforeCtrInput.value;
+  resultBeforeRh.textContent = beforeRhInput.value;
   totalBefore.textContent = beforeResult;
   //fill after fueling column
   resultAfterLh.textContent = afterLhInput.value;
   resultAfterCtr.textContent = afterCtrInput.value;
-  resultAfterRh.textContent = afterCtrInput.value;
+  resultAfterRh.textContent = afterRhInput.value;
   totalAfter.textContent = afterResult;
   //fill total metered field
   sumMeteredFuel.textContent = `${trucksResult.toLocaleString()} Gallons`;
